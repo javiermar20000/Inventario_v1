@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class ListarProductos extends AppCompatActivity {
 
+    FloatingActionButton fabEliminar;
+
     ListView listViewMateriales;
     ArrayList<String> listaInformacion;
     ArrayList<Material> listaMaterial;
@@ -27,10 +29,9 @@ public class ListarProductos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FloatingActionButton fabEliminar;
+
+
         fabEliminar = findViewById(R.id.fabEliminar);
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar);
 
@@ -38,7 +39,6 @@ public class ListarProductos extends AppCompatActivity {
 
 
         conexion = new SQLUtilities(this, "Material", null,1);
-
 
         consultarListaMateriales();
         ArrayAdapter adaptador = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
@@ -56,6 +56,7 @@ public class ListarProductos extends AppCompatActivity {
             }
         });
     }
+
 
     private void consultarListaMateriales() {
         SQLiteDatabase db = conexion.getReadableDatabase();
