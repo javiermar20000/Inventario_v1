@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Inventario_v1"
+        tools:targetApi="29">
+        <activity
+            android:name=".TiendasConsulta"
+            android:exported="false" />
+        <activity
+            android:name=".Preferencias"
+            android:exported="false" />
+        <activity
+            android:name=".ListarProductos"
+            android:exported="false"
+            android:label="@string/title_activity_listar_productos"
+            android:theme="@style/Theme.Inventario_v1" />
+        <activity
+            android:name=".MostrarProductos"
+            android:exported="false"
+            android:label="@string/title_activity_mostrar_productos"
+            android:theme="@style/Theme.Inventario_v1" />
+        <activity
+            android:name=".RegistrarProductos"
+            android:exported="false"
+            android:label="@string/title_activity_registrar_productos"
+            android:theme="@style/Theme.Inventario_v1" />
+        <activity
+            android:name=".InicioActivity"
+            android:exported="false"
+            android:label="@string/title_activity_inicio"
+            android:theme="@style/Theme.Inventario_v1" />
+        <activity
+            android:name=".LoginSession"
+            android:exported="false"
+            android:label="@string/title_activity_login_session"
+            android:theme="@style/Theme.Inventario_v1" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.Inventario_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

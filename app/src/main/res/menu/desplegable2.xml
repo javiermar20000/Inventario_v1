@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" >
+    <item
+        android:id="@+id/opRegresar"
+        android:title="regresar al inventario" />
+    <item
+        android:id="@+id/opSesion"
+        android:title="cerrar sesión" />
+    <item
+        android:id="@+id/opPreferencias"
+        android:title="Preferencias" />
+
+
+</menu>

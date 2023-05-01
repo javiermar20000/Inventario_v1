@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" >
+    <item
+        android:id="@+id/opRegistrar"
+        android:title="registrar" />
+    <item
+        android:id="@+id/opMostrar"
+        android:title="buscar" />
+    <item
+        android:id="@+id/opListar"
+        android:title="listar" />
+    <item
+        android:id="@+id/opSalir"
+        android:title="cerrar sesión" />
+    <item
+        android:id="@+id/opPref"
+        android:title="Preferencias" />
+
+</menu>
