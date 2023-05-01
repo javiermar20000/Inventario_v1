@@ -23,4 +23,4 @@ public class SQLUtilities extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
 
     }
-}
+    }

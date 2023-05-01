@@ -32,6 +32,7 @@ public class ListarProductos extends AppCompatActivity {
 
 
         fabEliminar = findViewById(R.id.fabEliminar);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar);
 
@@ -76,11 +77,7 @@ public class ListarProductos extends AppCompatActivity {
 
         }
         obtenerLista();
-
-
-
     }
-
     private void obtenerLista() {
         listaInformacion = new ArrayList<String>();
 
@@ -88,4 +85,4 @@ public class ListarProductos extends AppCompatActivity {
             listaInformacion.add("Nombre: " + listaMaterial.get(i).getNombre() + "\nCantidad: " + listaMaterial.get(i).getCantidad() + "\nTipo: " + listaMaterial.get(i).getTipo());
         }
     }
-}
+    }
