@@ -1,5 +1,6 @@
 package com.example.inventario_v1;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -9,7 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -20,8 +24,13 @@ public class ListarProductos extends AppCompatActivity {
     ArrayList<Material> listaMaterial;
     SQLUtilities conexion;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FloatingActionButton fabEliminar;
+        fabEliminar = findViewById(R.id.fabEliminar);
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar);
 
@@ -29,6 +38,7 @@ public class ListarProductos extends AppCompatActivity {
 
 
         conexion = new SQLUtilities(this, "Material", null,1);
+
 
         consultarListaMateriales();
         ArrayAdapter adaptador = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
@@ -45,7 +55,6 @@ public class ListarProductos extends AppCompatActivity {
                 Toast.makeText(ListarProductos.this,informacion, Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     private void consultarListaMateriales() {

@@ -65,6 +65,16 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Boton2"
+        android:layout_below="@+id/Boton"
+        android:text="Registrar Usuario"
+        android:backgroundTint="@color/design_default_color_primary_variant"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="1dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
