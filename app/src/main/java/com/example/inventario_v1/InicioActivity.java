@@ -49,7 +49,6 @@ public class InicioActivity extends AppCompatActivity implements View.OnClickLis
         return true;
     }
 
-
     //Metodo para asignar las funciones correspondientes a las opciones
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
