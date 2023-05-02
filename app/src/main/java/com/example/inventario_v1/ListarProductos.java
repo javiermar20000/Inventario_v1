@@ -1,5 +1,6 @@
 package com.example.inventario_v1;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -9,7 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,30 @@ public class ListarProductos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FloatingActionButton fabEliminar;
+        fabEliminar = findViewById(R.id.fabEliminar);
+        fabEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ListarProductos.this);
+                builder.setMessage("¿Desea eliminar todos los productos?").
+                        setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface) {
+                                SQLUtilities conexion = new SQLUtilities(OnclickListener, "Material", null,1);
+                                SQLiteDatabase db = conexion.getWritableDatabase();
+                                db.execSQL("DELETE FROM Material");
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+            }
+        });
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar);
 

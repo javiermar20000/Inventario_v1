@@ -25,6 +25,7 @@ public class SQLUtilities extends SQLiteOpenHelper {
 
     }
 
+
     public void onDelete(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DELETE FROM Material");
     }
