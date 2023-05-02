@@ -33,13 +33,13 @@ public class LoginSession extends AppCompatActivity {
         Boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(NombreUsuario.getText().toString().equals("javier") && Contrasena.getText().toString().equals("1234")){
+                if(NombreUsuario.getText().toString().equals("") || Contrasena.getText().toString().equals("")){
                     //Login correct
+                    Toast.makeText(LoginSession.this,"Complete todos los campos",Toast.LENGTH_SHORT).show();
+                }else {
                     Toast.makeText(LoginSession.this,"Inicio de sesion EXITOSO!!!!!!",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginSession.this,InicioActivity.class));
-                }else
-                    //Login NOT WORKS!
-                    Toast.makeText(LoginSession.this,"Inicio de sesion FALLIDO!!!!",Toast.LENGTH_SHORT).show();
+                }
             }
         });
         Boton2.setOnClickListener(new View.OnClickListener() {

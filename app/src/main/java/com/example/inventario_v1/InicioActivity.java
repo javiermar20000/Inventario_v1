@@ -55,6 +55,10 @@ public class InicioActivity extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(InicioActivity.this, ListarProductos.class);
             startActivity(intent);
 
+        } else if (id == R.id.opSalir) {
+            Intent intent = new Intent(InicioActivity.this, LoginSession.class);
+            startActivity(intent);
+
         } else if (id == R.id.opPref) {
             Intent intent = new Intent(InicioActivity.this, Preferencias.class);
             startActivity(intent);
