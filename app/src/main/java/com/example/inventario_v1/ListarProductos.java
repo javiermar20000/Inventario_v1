@@ -42,6 +42,7 @@ public class ListarProductos extends AppCompatActivity {
         listViewMateriales = (ListView) findViewById(R.id.listViewPersonas);
 
 
+
         conexion = new SQLUtilities(this, "Material", null,1);
 
         consultarListaMateriales();
