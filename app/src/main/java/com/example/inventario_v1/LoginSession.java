@@ -1,5 +1,6 @@
 package com.example.inventario_v1;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,18 +17,33 @@ public class LoginSession extends AppCompatActivity {
     CheckBox checkGuardarSesion;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    String llave = "sesion";
+
+
+    private void inicializarElementos() {
+        preferences =this.getPreferences(Context.MODE_PRIVATE);
+        editor = preferences.edit();
+        checkGuardarSesion =findViewById(R.id.Iniciar);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_session);
+        inicializarElementos();
+        revisarSesion();
 
         TextView NombreUsuario =(TextView) findViewById(R.id.NombreUsuario);
         TextView Contrasena =(TextView) findViewById(R.id.Contrasena);
 
-
-
         MaterialButton Boton = (MaterialButton) findViewById(R.id.Boton);
         MaterialButton Boton2 = (MaterialButton) findViewById(R.id.Boton2);
+
+        if(revisarSesion()) {
+            startActivity(new Intent(this, InicioActivity.class));
+            Toast.makeText(LoginSession.this,"Sesion Guardada\nIniciando...",Toast.LENGTH_SHORT).show();
+        } else {
+
+        }
 
         //admin and admin password
         Boton.setOnClickListener(new View.OnClickListener() {
@@ -36,8 +52,9 @@ public class LoginSession extends AppCompatActivity {
                 if(NombreUsuario.getText().toString().equals("") || Contrasena.getText().toString().equals("")){
                     //Login correct
                     Toast.makeText(LoginSession.this,"Complete todos los campos",Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(LoginSession.this,"Inicio de sesion EXITOSO!!!!!!",Toast.LENGTH_SHORT).show();
+                } else {
+                    guardarSesion(checkGuardarSesion.isChecked());
+                    Toast.makeText(LoginSession.this,"Inicio de sesion EXITOSO!!!",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginSession.this,InicioActivity.class));
                 }
             }
@@ -55,6 +72,17 @@ public class LoginSession extends AppCompatActivity {
 
         });
     }
+    private void guardarSesion(boolean checked) {
+        editor.putBoolean(llave, checked);
+        editor.apply();
+
+    }
+    private boolean revisarSesion() {
+        return this.preferences.getBoolean(llave, false);
+    }
+
+
+
 
 
 }
