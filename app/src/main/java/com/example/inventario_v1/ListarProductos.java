@@ -1,9 +1,12 @@
 package com.example.inventario_v1;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -58,6 +61,26 @@ public class ListarProductos extends AppCompatActivity {
         });
     }
 
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.desplegable3, menu);
+        return true;
+    }
+
+
+    //Metodo para asignar las funciones correspondientes a las opciones
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.opRegresar) {
+            Intent intent = new Intent(ListarProductos.this, InicioActivity.class);
+            startActivity(intent);
+
+        } else {
+            finish();
+            System.exit(0);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void consultarListaMateriales() {
         SQLiteDatabase db = conexion.getReadableDatabase();

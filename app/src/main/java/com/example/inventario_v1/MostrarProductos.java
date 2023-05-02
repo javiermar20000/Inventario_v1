@@ -1,10 +1,13 @@
 package com.example.inventario_v1;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import android.database.Cursor;
@@ -39,9 +42,28 @@ public class MostrarProductos extends AppCompatActivity implements View.OnClickL
 
     }
 
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.desplegable3, menu);
+        return true;
+    }
+
+
+    //Metodo para asignar las funciones correspondientes a las opciones
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.opRegresar) {
+            Intent intent = new Intent(MostrarProductos.this, InicioActivity.class);
+            startActivity(intent);
+
+        } else {
+            finish();
+            System.exit(0);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void BuscarPersona(){
-
-
 
         SQLiteDatabase db = conexion.getReadableDatabase();
         String[] parametros = {edtRut.getText().toString()};
