@@ -55,15 +55,23 @@
         android:drawableLeft="@drawable/baseline_security_24"
         android:drawablePadding="25dp"/>
 
+    <CheckBox
+        android:id="@+id/Iniciar"
+        android:text="Guardar Sesión"
+        android:textColor="@color/white"
+        android:layout_below="@+id/Contrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Boton"
-        android:layout_below="@+id/Contrasena"
+        android:layout_below="@+id/Iniciar"
         android:text="Iniciar sesión"
         android:backgroundTint="@color/design_default_color_primary_variant"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"/>
+        android:layout_margin="10dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"

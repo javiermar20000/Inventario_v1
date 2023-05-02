@@ -1,14 +1,21 @@
 package com.example.inventario_v1;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.content.Intent;
 import com.google.android.material.button.MaterialButton;
+
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginSession extends AppCompatActivity {
+
+    CheckBox checkGuardarSesion;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,5 +55,6 @@ public class LoginSession extends AppCompatActivity {
 
         });
     }
+
 
 }
