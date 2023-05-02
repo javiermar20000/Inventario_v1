@@ -3,8 +3,11 @@ package com.example.inventario_v1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,13 +34,32 @@ public class RegistrarProductos extends AppCompatActivity implements View.OnClic
         btnRegistrar = (Button)findViewById(R.id.btnMostrar);
         btnRegistrar.setOnClickListener(this);
 
+
         String [] opciones = {"Tipo", "Legumbres" , "Verduras", "Carnes", "Frutas", "Cereales", "Lacteos", "Bebestibles" };
-
-
 
 
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         spinner.setAdapter(adapter);
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.desplegable3, menu);
+        return true;
+    }
+
+
+    //Metodo para asignar las funciones correspondientes a las opciones
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.opRegresar) {
+            Intent intent = new Intent(RegistrarProductos.this, InicioActivity.class);
+            startActivity(intent);
+
+        } else {
+            finish();
+            System.exit(0);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void registrarMaterail(){

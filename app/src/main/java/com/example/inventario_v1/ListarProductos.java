@@ -1,9 +1,12 @@
 package com.example.inventario_v1;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,36 +22,19 @@ import java.util.ArrayList;
 
 public class ListarProductos extends AppCompatActivity {
 
+    FloatingActionButton fabEliminar;
+
     ListView listViewMateriales;
     ArrayList<String> listaInformacion;
     ArrayList<Material> listaMaterial;
     SQLUtilities conexion;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FloatingActionButton fabEliminar;
-        fabEliminar = findViewById(R.id.fabEliminar);
-        fabEliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ListarProductos.this);
-                builder.setMessage("¿Desea eliminar todos los productos?").
-                        setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface) {
-                                SQLUtilities conexion = new SQLUtilities(OnclickListener, "Material", null,1);
-                                SQLiteDatabase db = conexion.getWritableDatabase();
-                                db.execSQL("DELETE FROM Material");
-                            }
-                        })
-                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
 
-                            }
-                        }).show();
-            }
-        });
+
+        fabEliminar = findViewById(R.id.fabEliminar);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar);
@@ -73,7 +59,27 @@ public class ListarProductos extends AppCompatActivity {
                 Toast.makeText(ListarProductos.this,informacion, Toast.LENGTH_LONG).show();
             }
         });
+    }
 
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.desplegable3, menu);
+        return true;
+    }
+
+
+    //Metodo para asignar las funciones correspondientes a las opciones
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.opRegresar) {
+            Intent intent = new Intent(ListarProductos.this, InicioActivity.class);
+            startActivity(intent);
+
+        } else {
+            finish();
+            System.exit(0);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void consultarListaMateriales() {
@@ -94,11 +100,7 @@ public class ListarProductos extends AppCompatActivity {
 
         }
         obtenerLista();
-
-
-
     }
-
     private void obtenerLista() {
         listaInformacion = new ArrayList<String>();
 
@@ -106,4 +108,4 @@ public class ListarProductos extends AppCompatActivity {
             listaInformacion.add("Nombre: " + listaMaterial.get(i).getNombre() + "\nCantidad: " + listaMaterial.get(i).getCantidad() + "\nTipo: " + listaMaterial.get(i).getTipo());
         }
     }
-}
+    }

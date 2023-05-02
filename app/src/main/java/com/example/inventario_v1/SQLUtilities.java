@@ -15,7 +15,6 @@ public class SQLUtilities extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(sqlCreate);
-
     }
 
     @Override
@@ -24,9 +23,4 @@ public class SQLUtilities extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
 
     }
-
-
-    public void onDelete(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DELETE FROM Material");
     }
-}

@@ -20,6 +20,7 @@ public class LoginSession extends AppCompatActivity {
 
 
         MaterialButton Boton = (MaterialButton) findViewById(R.id.Boton);
+        MaterialButton Boton2 = (MaterialButton) findViewById(R.id.Boton2);
 
         //admin and admin password
         Boton.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +34,18 @@ public class LoginSession extends AppCompatActivity {
                     //Login NOT WORKS!
                     Toast.makeText(LoginSession.this,"Inicio de sesion FALLIDO!!!!",Toast.LENGTH_SHORT).show();
             }
+        });
+        Boton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(NombreUsuario.getText().toString().equals("") || Contrasena.getText().toString().equals("")){
+                    Toast.makeText(LoginSession.this, "Llene todos los campos para el registro", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginSession.this, "Registro Exitoso, iniciando sesión",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginSession.this,InicioActivity.class));
+                }
+            }
+
         });
     }
 
