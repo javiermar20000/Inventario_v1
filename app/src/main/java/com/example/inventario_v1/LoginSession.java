@@ -21,7 +21,7 @@ public class LoginSession extends AppCompatActivity {
 
 
     private void inicializarElementos() {
-        preferences =this.getPreferences(Context.MODE_PRIVATE);
+        preferences =this.getSharedPreferences("sesiones", Context.MODE_PRIVATE);
         editor = preferences.edit();
         checkGuardarSesion =findViewById(R.id.Iniciar);
     }
@@ -74,6 +74,7 @@ public class LoginSession extends AppCompatActivity {
     }
     private void guardarSesion(boolean checked) {
         editor.putBoolean(llave, checked);
+        //editor.putString("nombre","jose");
         editor.apply();
 
     }

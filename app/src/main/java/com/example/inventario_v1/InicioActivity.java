@@ -1,15 +1,22 @@
 package com.example.inventario_v1;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class InicioActivity extends AppCompatActivity implements View.OnClickListener {
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
 
     private Button btnReg, btnBu, btnLi, btnPref;
@@ -28,6 +35,10 @@ public class InicioActivity extends AppCompatActivity implements View.OnClickLis
         btnBu.setOnClickListener(this);
         btnLi.setOnClickListener(this);
         btnPref.setOnClickListener(this);
+
+        preferences = getSharedPreferences("sesiones", Context.MODE_PRIVATE);
+        editor =preferences.edit();
+
         SQLUtilities conexion = new SQLUtilities(this, "Producto", null,1);
     }
 
@@ -56,6 +67,9 @@ public class InicioActivity extends AppCompatActivity implements View.OnClickLis
             startActivity(intent);
 
         } else if (id == R.id.opSalir) {
+            editor.putBoolean("sesion", false);
+            editor.apply();
+            Toast.makeText(InicioActivity.this,"La sesión fue cerrada exitosamente",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(InicioActivity.this, LoginSession.class);
             startActivity(intent);
 
