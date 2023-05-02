@@ -33,9 +33,6 @@ public class ListarProductos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-        fabEliminar = findViewById(R.id.fabEliminar);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar);
 
