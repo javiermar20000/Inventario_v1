@@ -42,7 +42,6 @@ public class InicioActivity extends AppCompatActivity implements View.OnClickLis
         SQLUtilities conexion = new SQLUtilities(this, "Producto", null,1);
     }
 
-
     //Metodo para mostrar y ocultar el menu
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.overflow, menu);
