@@ -40,7 +40,7 @@ public class LoginSession extends AppCompatActivity {
 
         if(revisarSesion()) {
             startActivity(new Intent(this, InicioActivity.class));
-            Toast.makeText(LoginSession.this,"Sesion Guardada\nIniciando...",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginSession.this,"Sesion Guardada, iniciando...",Toast.LENGTH_SHORT).show();
         } else {
 
         }
@@ -65,6 +65,7 @@ public class LoginSession extends AppCompatActivity {
                 if(NombreUsuario.getText().toString().equals("") || Contrasena.getText().toString().equals("")){
                     Toast.makeText(LoginSession.this, "Llene todos los campos para el registro", Toast.LENGTH_SHORT).show();
                 } else {
+                    guardarSesion(checkGuardarSesion.isChecked());
                     Toast.makeText(LoginSession.this, "Registro Exitoso, iniciando sesión",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginSession.this,InicioActivity.class));
                 }
